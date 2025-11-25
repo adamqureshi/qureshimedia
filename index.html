@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Qureshi Media LLC – Product Dev & AI Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="QURESHI MEDIA LLC – a one-man product dev and AI engineering shop in NYC. We build our own products and occasionally your MVP." />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --card-bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --border: #dddddd;
+      --accent: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .title {
+      margin-top: 14px;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    .title br {
+      display: none;
+    }
+
+    @media (min-width: 480px) {
+      .title br {
+        display: inline;
+      }
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+    }
+
+    .meta-line {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 22px 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    section + section {
+      margin-top: 28px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    /* Q&A accordion */
+    .qa {
+      margin-top: 4px;
+    }
+
+    .qa details {
+      border-top: 1px solid var(--border);
+      padding: 10px 0;
+    }
+
+    .qa details:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .qa summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .qa summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .qa summary::after {
+      content: "+";
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .qa details[open] summary::after {
+      content: "–";
+    }
+
+    .qa .answer {
+      margin-top: 6px;
+      padding-right: 4px;
+    }
+
+    .qa .answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .micro-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact {
+      margin-top: 8px;
+    }
+
+    .contact-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      min-height: 48px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 40px 24px 72px;
+      }
+
+      header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Qureshi Media LLC</div>
+      <div class="title">
+        Product dev & AI engineering<br />
+        for people who actually ship.
+      </div>
+      <div class="subtitle">
+        One‑man shop run by <strong>Mohammed Adam Qureshi</strong>. Based in NYC. I build my own products and occasionally build MVPs for other owners.
+      </div>
+      <div class="meta-line">
+        NYC • Product dev • AI‑first • 10+ years shipping
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Portfolio</h2>
+        <p>I mostly build my own products:</p>
+        <ul>
+          <li><a href="https://onlyusedtesla.com/" target="_blank" rel="noopener noreferrer">onlyusedtesla.com</a></li>
+          <li><a href="https://sellmycybertruck.com/" target="_blank" rel="noopener noreferrer">sellmycybertruck.com</a></li>
+          <li><a href="https://sellmyexoticfast.com/" target="_blank" rel="noopener noreferrer">sellmyexoticfast.com</a></li>
+          <li>
+            <a href="https://adamqureshi.com/pay-out-landing-/" target="_blank" rel="noopener noreferrer">
+              Pay OUT – digital checkout
+            </a> (in release)
+          </li>
+        </ul>
+
+        <p class="micro-copy">
+          This LLC is the home for my products and the rare client build that passes my filter.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Q &amp; A</h2>
+
+        <div class="qa">
+
+          <details open>
+            <summary>Who runs Qureshi Media?</summary>
+            <div class="answer">
+              <p>
+                I’m <strong>Mohammed Adam Qureshi</strong>, 54, based in NYC. I’ve been building and shipping my own products for about a decade. No committee. No layers. Just me and the stack.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What does Qureshi Media actually do?</summary>
+            <div class="answer">
+              <p>
+                Qureshi Media is a <strong>product development / AI engineering shop</strong>. I:
+              </p>
+              <ul>
+                <li>Design, build, and launch new products and MVPs.</li>
+                <li>Use AI heavily to move fast from idea → prototype → live.</li>
+                <li>Think through go‑to‑market, not just “build the app”.</li>
+              </ul>
+              <p>
+                My bias is toward shipping and learning from the market, not endless planning.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Can I hire you?</summary>
+            <div class="answer">
+              <p>
+                <strong>Maybe.</strong> I am <strong>not</strong> looking for a job. I am not looking for “more work.” I am interested in
+                <strong>owners</strong> with real skin in the game.
+              </p>
+              <p>
+                If I don’t like the industry or the idea, I won’t take it. No hard feelings.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What does it cost to work together?</summary>
+            <div class="answer">
+              <p>
+                <strong>Idea breakdown call:</strong> $1,000 for 45 minutes.
+              </p>
+              <p>
+                I’ll tear down your idea, pressure‑test it, and outline what I’d actually build and how I’d take it to market.
+              </p>
+              <p>
+                <strong>Build:</strong> Minimum <strong>$30k</strong> to ship a proper MVP. If that number scares you, you’re not ready for me.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What kind of founders do you work with?</summary>
+            <div class="answer">
+              <p>
+                Owners and early‑stage startups who:
+              </p>
+              <ul>
+                <li>Care about speed and shipping over decks and drama.</li>
+                <li>Make decisions directly (no 10‑person steering committees).</li>
+                <li>Understand that product + distribution are the same conversation.</li>
+              </ul>
+              <p>
+                If you’re an operator who wants to get something into the market fast, we’ll probably get along.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How do you work?</summary>
+            <div class="answer">
+              <p>
+                I’m a <strong>one‑man shop</strong> using AI as leverage. That means:
+              </p>
+              <ul>
+                <li>Short feedback loops. You talk to me, not a project manager.</li>
+                <li>Hands‑on with product, UX, engineering, and go‑to‑market.</li>
+                <li>Focus on shipping something small, sharp, and real — not a 12‑month “platform”.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>What happens if I pitch you something?</summary>
+            <div class="answer">
+              <p>
+                I’ll look at:
+              </p>
+              <ul>
+                <li>Do I like this space?</li>
+                <li>Is there a clear, sharp MVP?</li>
+                <li>Is there a believable path to customers?</li>
+              </ul>
+              <p>
+                I may say no. I’ve seen a lot. I’m okay passing. You should be too.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="card contact">
+        <h2>Contact</h2>
+        <p>
+          If you’re an owner or startup and you want to:
+        </p>
+        <ul>
+          <li>Validate an idea with someone who’s been shipping for 10+ years.</li>
+          <li>Scope a real MVP with clear constraints.</li>
+          <li>Move fast using AI, not get lost in slide decks.</li>
+        </ul>
+
+        <div class="contact-actions">
+          <!-- TODO: replace the email address below with your real inbox. -->
+          <a class="button" href="mailto:hello@qureshimedia.com?subject=Qureshi%20Media%20–%20MVP%20or%20Idea%20Call">
+            Email Mohammed
+          </a>
+        </div>
+
+        <p class="micro-copy">
+          Keep it short. Who you are, the industry, the problem, and what you want to ship. I may or may not reply.
+        </p>
+      </section>
+
+      <footer>
+        Qureshi Media LLC &middot; Based in NYC &middot; We build our own products first.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
